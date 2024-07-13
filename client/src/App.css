@@ -1,0 +1,23 @@
+.dashboard--content {
+  background: #fff;
+  flex: 2;
+  border-radius: 20px;
+  padding: 50px; /* Adjust padding */
+  display: flex;
+  gap: 1.5rem;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-left: 100px; /* Adjust margin-left to reduce space from the left */
+  margin-bottom:99px;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100vh;
+  width: 100%;
+}
+
+
+

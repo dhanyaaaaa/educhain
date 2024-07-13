@@ -1,0 +1,59 @@
+.meetings-page {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center contents vertically */
+    height: 100vh;
+    padding: 20px;
+    position: relative;
+    width:100%;
+}
+
+.top-section {
+    width: 100%;
+    display: flex;
+    position: relative;
+}
+
+.schedule-button {
+    position: fixed; /* Changed to fixed positioning */
+    top: 70px; /* Adjusted the top position */
+    right: 70px; /* Adjusted the right position */
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.meeting-history {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center contents vertically */
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+
+.meeting-history h2 {
+    margin-bottom: 20px;
+}
+
+.meeting-history table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto; /* Center the table horizontally */
+}
+
+.meeting-history th, .meeting-history td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.meeting-history th {
+    background-color: #f2f2f2;
+}

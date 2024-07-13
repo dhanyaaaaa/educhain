@@ -1,0 +1,40 @@
+/* schedulemeeting.css */
+
+.schedule-meeting-page {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    width:100%;
+}
+
+.meeting-form {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the form elements */
+    width: 100%;
+    margin:auto;
+}
+
+.meeting-form div {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.meeting-form label {
+    margin-bottom: 5px;
+    display: block;
+    text-align: left; /* Align labels to the left */
+}
+
+.meeting-form input, .meeting-form select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}

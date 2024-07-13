@@ -1,0 +1,97 @@
+.payment--content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.payment--content h2 {
+    margin-top: 0;
+}
+
+.payment--content form {
+    margin-bottom: 20px;
+}
+
+.payment--content form label {
+    margin-right: 10px;
+}
+
+.payment--content select,
+.payment--content input[type="number"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    width: 150px;
+}
+
+.payment--content button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.payment--content button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.class-fees {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.class-fees--item {
+    flex: 1 1 200px;.payment--content {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+    }
+    
+    .class-fees {
+        margin-top: 20px;
+    }
+    
+    .class-fees--item {
+        margin-bottom: 10px;
+    }
+    
+    .generate-structure {
+        margin-top: 20px;
+    }
+    
+    .form-group {
+        margin-bottom: 10px;
+    }
+    
+    .form-group label {
+        margin-right: 10px;
+    }
+    
+    button[type="submit"] {
+        background-color: #007bff;
+        color: white;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+    button[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+    
+}
+
+.generate-structure {
+    margin-top: 20px;
+}
+
