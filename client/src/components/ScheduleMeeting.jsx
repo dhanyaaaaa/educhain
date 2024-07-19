@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import axios from 'axios';
 import "../styles/schedulemeeting.css";
 
 const ScheduleMeeting = ({ meetingHistory, setMeetingHistory }) => {
@@ -28,17 +29,28 @@ const ScheduleMeeting = ({ meetingHistory, setMeetingHistory }) => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const updatedHistory = meetingToEdit
-      ? meetingHistory.map((meeting, i) => (i === index ? formData : meeting))
-      : [...meetingHistory, formData];
-    setMeetingHistory(updatedHistory);
+    try {
+      if (meetingToEdit) {
+        await axios.put(`http://localhost:5000/meetings/${meetingToEdit.id}`, formData);
+        const updatedHistory = meetingHistory.map((meeting, i) => (i === index ? formData : meeting));
+        setMeetingHistory(updatedHistory);
+      } else {
+        const response = await axios.post('http://localhost:5000/meetings', formData);
+        setMeetingHistory([...meetingHistory, response.data]);
+      }
+      navigate('/meetings');
+    } catch (error) {
+      console.error('Error saving meeting:', error);
+    }
+  };
+
+  const handleBack = () => {
     navigate('/meetings');
   };
 
   return (
-   
     <div className="schedule-meeting-page">
       <h1>Schedule Meeting</h1>
       <form className="meeting-form" onSubmit={handleSubmit}>
@@ -79,10 +91,12 @@ const ScheduleMeeting = ({ meetingHistory, setMeetingHistory }) => {
           <label>Time:</label>
           <input type="time" name="time" value={formData.time} onChange={handleInputChange} required />
         </div>
-        <button type="submit">Submit</button>
+        <div className="form-buttons">
+          <button type="submit" className="submit-button">Submit</button>
+          <button type="button" className="back-button" onClick={handleBack}>Back</button>
+        </div>
       </form>
     </div>
-   
   );
 };
 

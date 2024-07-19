@@ -3,12 +3,12 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 
-import Feedback from './pages/Feedback';
+
 
 import './App.css';
 import Meetings from './pages/Meetings';
 import ScheduleMeeting from './components/ScheduleMeeting';
-import Dashboard from './pages/Dashboard'; // Ensure this path is correct
+ // Ensure this path is correct
 import Schools from './pages/Schools'; // Ensure this path is correct
 import Payment from './pages/Payment';
 
@@ -46,8 +46,8 @@ const App = () => {
         <Sidebar />
         <div className="dashboard--content">
           <Routes>
+          
             
-            <Route path="/dashboard" element={<Dashboard onAddSchool={handleAddSchool} />} />
             <Route path="/schools" element={
               <Schools 
                 schools={schools} 
@@ -58,7 +58,7 @@ const App = () => {
             <Route path="/meetings" element={<Meetings meetingHistory={meetingHistory} setMeetingHistory={setMeetingHistory} />} />
             <Route path="/schedule-meeting" element={<ScheduleMeeting meetingHistory={meetingHistory} setMeetingHistory={setMeetingHistory} />} />
             <Route path="/payment" element={<Payment />} />
-            <Route path="/feedback" element={<Feedback />} />
+            
           </Routes>
         </div>
       </div>

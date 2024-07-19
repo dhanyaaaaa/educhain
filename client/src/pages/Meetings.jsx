@@ -1,14 +1,33 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import "../styles/meetings.css";
 
 const Meetings = ({ meetingHistory, setMeetingHistory }) => {
   const navigate = useNavigate();
 
-  const handleDelete = (index) => {
-    const updatedHistory = meetingHistory.filter((_, i) => i !== index);
-    setMeetingHistory(updatedHistory);
+  useEffect(() => {
+    const fetchMeetings = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/meetings');
+        setMeetingHistory(response.data);
+      } catch (error) {
+        console.error('Error fetching meetings:', error);
+      }
+    };
+    fetchMeetings();
+  }, [setMeetingHistory]);
+
+  const handleDelete = async (index) => {
+    const meetingToDelete = meetingHistory[index];
+    try {
+      await axios.delete(`http://localhost:5000/meetings/${meetingToDelete.id}`);
+      const updatedHistory = meetingHistory.filter((_, i) => i !== index);
+      setMeetingHistory(updatedHistory);
+    } catch (error) {
+      console.error('Error deleting meeting:', error);
+    }
   };
 
   const handleEdit = (index) => {
@@ -21,7 +40,6 @@ const Meetings = ({ meetingHistory, setMeetingHistory }) => {
   };
 
   return (
-  
     <div className="meetings-page">
       <div className="top-section">
         <button className="schedule-button" onClick={navigateToSchedule}>
@@ -63,8 +81,8 @@ const Meetings = ({ meetingHistory, setMeetingHistory }) => {
                     <td>{meeting.date}</td>
                     <td>{meeting.time}</td>
                     <td>
-                      <button onClick={() => handleEdit(index)}>Edit</button>
-                      <button onClick={() => handleDelete(index)}>Delete</button>
+                      <button className="edit-button" onClick={() => handleEdit(index)}>Edit</button>
+                      <button className="delete-button" onClick={() => handleDelete(index)}>Delete</button>
                     </td>
                   </tr>
                 ))}
@@ -74,7 +92,6 @@ const Meetings = ({ meetingHistory, setMeetingHistory }) => {
         </div>
       </div>
     </div>
-   
   );
 };
 

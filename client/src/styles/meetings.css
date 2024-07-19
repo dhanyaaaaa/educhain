@@ -1,59 +1,77 @@
 .meetings-page {
-    
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* Center contents vertically */
-    height: 100vh;
     padding: 20px;
-    position: relative;
-    width:100%;
-}
-
-.top-section {
     width: 100%;
-    display: flex;
-    position: relative;
-}
-
-.schedule-button {
-    position: fixed; /* Changed to fixed positioning */
-    top: 70px; /* Adjusted the top position */
-    right: 70px; /* Adjusted the right position */
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-.meeting-history {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; /* Center contents vertically */
-    width: 100%;
-    max-width: 1200px;
-    margin: auto;
-    text-align: center;
-}
-
-.meeting-history h2 {
+    height: 100vh;
+  }
+  
+  .top-section {
     margin-bottom: 20px;
-}
-
-.meeting-history table {
+  }
+  
+  .schedule-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color:#041E42;
+  }
+  
+  .right-section {
+    width: 90%;
+    height: 80%;
+    overflow-y: auto;
+  }
+  
+  .meeting-history {
+    width: 100%;
+  }
+  
+  .meeting-history table {
     width: 100%;
     border-collapse: collapse;
-    margin: 0 auto; /* Center the table horizontally */
-}
-
-.meeting-history th, .meeting-history td {
+  }
+  
+  .meeting-history th,
+  .meeting-history td {
     border: 1px solid #ddd;
     padding: 8px;
-    text-align: center;
-}
-
-.meeting-history th {
-    background-color: #f2f2f2;
-}
+    text-align: left;
+  }
+  
+  .meeting-history th {
+    background-color: #002244;
+  }
+  
+  .meeting-history tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .meeting-history tr:hover {
+    background-color: #8DA399;
+  }
+  
+  .meeting-history th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #002244;
+    color: white;
+  }
+  .edit-button {
+    /* Customize your color here */
+    background-color: #041E42;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .delete-button {
+    /* Customize your color here */
+    background-color:red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }

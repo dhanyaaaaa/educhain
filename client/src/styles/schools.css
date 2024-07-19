@@ -1,49 +1,44 @@
-/* schools.css */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    margin: 10px 5px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 5px;
-}
-
-button.edit-button {
-    background-color: blue;
-}
-
-button.delete-button {
-    background-color: red;
-}
-
-button:hover {
-    background-color: darken(#4CAF50, 10%);
-}
-
-button.edit-button:hover {
-    background-color: darken(blue, 10%);
-}
-
-button.delete-button:hover {
-    background-color: darken(red, 10%);
-}
-
-.add-school-form {
-    margin: 20px 0;
-}
-
-.add-school-form input[type="text"], .add-school-form button {
+.schools--content {
+    max-width: 800px;
+    margin: 0 auto;
     padding: 10px;
-    margin-right: 10px;
-    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card--container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.card {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card--cover {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.card--title {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
 }
 
 .modal-overlay {
@@ -56,54 +51,166 @@ button.delete-button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
 }
 
 .modal {
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    width: 500px;
-    max-width: 100%;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 90%;
+    width: 90%;
+    max-height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
 }
 
 .modal--content {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.modal--content form {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
-.modal--content h2 {
-    margin-top: 0;
-}
-
-.modal--content ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.modal--content ul li {
+.modal--content .form-group {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
+}
+
+.modal--content .form-group label {
+    margin-bottom: 5px;
+    font-size: 0.8rem;
+    flex: 1 1 48%;
+    box-sizing: border-box;
+}
+
+.modal--content .form-group input,
+.modal--content .form-group select {
+    margin-bottom: 5px;
+    padding: 5px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .modal--buttons {
-    display: flex;
-    justify-content: flex-end;
+    margin-top: 10px;
+    text-align: right;
+}
+
+.modal--buttons button {
+    margin-left: 5px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.modal--buttons button:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.view-schools {
     margin-top: 20px;
-}
-
-.add-school-form input[type="text"], .modal--content input[type="text"], .modal--content input[type="tel"], .modal--content input[type="email"], .modal--content input[type="number"] {
     width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    position: relative; /* Add this line */
 }
 
-.modal--content label {
-    font-weight: bold;
-    margin: 10px 0 5px;
+.view-schools h2 {
+    margin-bottom: 10px;
+}
+
+.view-schools table {
+    width: 100%;
+    max-width: 800px;
+    border-collapse: collapse;
+}
+
+.view-schools th, .view-schools td {
+    border: 1px solid #ccc;
+    padding: 5px;
+    text-align: left;
+}
+
+.view-schools th {
+    background-color: #f0f0f0;
+}
+
+.view-schools td button {
+    margin-right: 5px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.view-schools td button:hover {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.back-button {
+    position: fixed; /* Change from absolute to fixed */
+    bottom: 10px;
+    left: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: 100%;
+    }
+
+    .modal {
+        max-width: 100%;
+        width: 90%;
+        height: auto;
+    }
+
+    .modal--content {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .view-schools {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .view-schools table {
+        width: 100%;
+        height: auto;
+    }
+
+    .modal--content .form-group {
+        flex-direction: column;
+    }
+
+    .modal--content .form-group label {
+        flex: 1 1 100%;
+    }
 }
